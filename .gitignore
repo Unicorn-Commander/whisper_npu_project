@@ -60,7 +60,9 @@ test_audio.*
 .coverage
 htmlcov/
 
-# Large LLVM/MLIR directories - these should be built from source
+# Large LLVM/MLIR directories - these should be cloned/built separately
+mlir-aie/
+xdna-driver/
 llvm/build/
 mlir-aie/build/
 mlir-aie/install/

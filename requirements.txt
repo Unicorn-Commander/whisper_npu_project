@@ -1,0 +1,41 @@
+# Core speech recognition dependencies
+whisperx
+faster-whisper
+torch
+transformers
+librosa
+pyannote-audio
+
+# Audio processing
+soundfile
+sounddevice
+scipy
+numpy
+pydub
+
+# GUI frameworks
+PyQt6
+tkinter-tooltip
+
+# AI/ML utilities
+onnx
+onnxruntime
+huggingface-hub
+
+# Wake word detection
+openwakeword
+
+# Voice activity detection
+webrtcvad
+
+# Utility libraries
+requests
+tqdm
+click
+colorama
+rich
+
+# Development and testing
+pytest
+black
+flake8

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=WhisperX NPU Accelerator
+Comment=Speech recognition with NPU acceleration
+Exec=/home/ucadmin/Development/whisper_npu_project/launch_gui.sh
+Icon=audio-x-generic
+Terminal=true
+Categories=AudioVideo;Audio;
+StartupNotify=true
+Path=/home/ucadmin/Development/whisper_npu_project

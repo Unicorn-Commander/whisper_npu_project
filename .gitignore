@@ -1,0 +1,83 @@
+# Virtual environments
+whisperx_env/
+venv/
+env/
+.venv/
+
+# Model caches and downloads
+whisper_onnx_cache/
+models/
+*.model
+*.bin
+*.onnx
+*.pt
+*.pth
+*.safetensors
+
+# Build and installation directories
+build/
+install/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Large binary files
+*.so
+*.dll
+*.dylib
+*.a
+*.lib
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+temp/
+logs/
+
+# Audio test files (can be large)
+*.wav
+*.mp3
+*.flac
+*.m4a
+test_audio.*
+
+# System and cache files
+.cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Large LLVM/MLIR directories - these should be built from source
+llvm/build/
+mlir-aie/build/
+mlir-aie/install/
+mlir-aie/llvm/build/
+mlir-aie/llvm/install/
+xdna-driver/build/
+
+# Backup files
+*.backup
+*.bak
+*.orig
+
+# OS generated files
+Thumbs.db
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Documentation build output
+docs/_build/

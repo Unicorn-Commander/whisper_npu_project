@@ -80,7 +80,7 @@ class SileroVADNPU:
                 
                 model_path = hf_hub_download(
                     repo_id="deepghs/silero-vad-onnx",
-                    filename="model.onnx",
+                    filename="silero_vad.onnx",
                     cache_dir="/home/ucadmin/Development/whisper_npu_project/vad_cache"
                 )
                 

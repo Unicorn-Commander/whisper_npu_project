@@ -131,8 +131,7 @@ class SileroVADNPU:
                     else:
                         audio_chunk = audio_chunk[:self.chunk_samples]
                 
-                # Silero VAD input format
-                input_feed = {
+                input_tensor = audio_chunk.astype(np.float32).reshape(1, -1)
                     'input': input_tensor,
                     'sr': np.array(self.sample_rate, dtype=np.int64),
                     'state': np.concatenate((self._h, self._c), axis=1)

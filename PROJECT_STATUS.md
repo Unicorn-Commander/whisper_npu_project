@@ -2,7 +2,7 @@
 
 **Project**: ONNX Whisper + NPU Acceleration Breakthrough  
 **Platform**: AMD NPU Phoenix (NucBox K11)  
-**Status**: 🎉 **BREAKTHROUGH ACHIEVED** - Full NPU Speech Transcription with ONNX  
+**Status**: ⚠️ **MINOR ISSUE IDENTIFIED** - Full NPU Speech Transcription with ONNX (Minor audio input sample rate issue in GUI)  
 **Last Updated**: June 27, 2025  
 
 ---

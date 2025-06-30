@@ -79,8 +79,8 @@ class SileroVADNPU:
                 from huggingface_hub import hf_hub_download
                 
                 model_path = hf_hub_download(
-                    repo_id="silero/silero-vad",
-                    filename="silero_vad.onnx",
+                    repo_id="onnx-community/silero-vad",
+                    filename="model.onnx",
                     cache_dir="/home/ucadmin/Development/whisper_npu_project/vad_cache"
                 )
                 

@@ -42,6 +42,10 @@ class SileroVADNPU:
         self.chunk_duration = 0.256  # 256ms chunks for real-time processing
         self.chunk_samples = int(self.sample_rate * self.chunk_duration)
         
+        # Silero VAD internal states
+        self._h = np.zeros((2, 1, 128)).astype(np.float32) # Hidden state
+        self._c = np.zeros((2, 1, 128)).astype(np.float32) # Cell state
+        
         # VAD settings
         self.vad_threshold = 0.5
         self.min_speech_duration = 0.25  # Minimum 250ms of speech
@@ -128,11 +132,17 @@ class SileroVADNPU:
                         audio_chunk = audio_chunk[:self.chunk_samples]
                 
                 # Silero VAD input format
-                input_tensor = audio_chunk.astype(np.float32).reshape(1, -1)
+                input_feed = {
+                    'input': input_tensor,
+                    'sr': np.array(self.sample_rate, dtype=np.int64),
+                    'state': np.concatenate((self._h, self._c), axis=1)
+                }
                 
                 # Run VAD inference
-                outputs = self.vad_model.run(None, {'input': input_tensor})
+                outputs = self.vad_model.run(None, input_feed)
                 speech_prob = outputs[0][0][0]  # Extract speech probability
+                self._h = outputs[1][:, :128, :]
+                self._c = outputs[1][:, 128:, :]
                 
                 is_speech = speech_prob > self.vad_threshold
                 return is_speech, speech_prob

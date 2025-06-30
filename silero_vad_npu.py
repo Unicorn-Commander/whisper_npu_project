@@ -136,15 +136,14 @@ class SileroVADNPU:
                 input_feed = {
                     'input': input_tensor,
                     'sr': np.array(self.sample_rate, dtype=np.int64),
-                    'h': self._h,
-                    'c': self._c
+                    'state': np.concatenate((self._h, self._c), axis=1)
                 }
                 
                 # Run VAD inference
                 outputs = self.vad_model.run(None, input_feed)
                 speech_prob = outputs[0][0][0]  # Extract speech probability
-                self._h = outputs[1]
-                self._c = outputs[2]
+                self._h = outputs[1][:, :128, :]
+                self._c = outputs[1][:, 128:, :]
                 
                 is_speech = speech_prob > self.vad_threshold
                 return is_speech, speech_prob

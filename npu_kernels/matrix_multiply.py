@@ -44,7 +44,7 @@ class NPUMatrixKernel:
         
         return kernel_header + kernel_code
     
-    def load_data_to_npu(self, data: np.ndarray) -> str:
+    def load_data_to_npu(self, data: np.ndarray) -> Tuple[str, Tuple[int, ...]]:
         """
         Load data to NPU memory
         
@@ -52,7 +52,7 @@ class NPUMatrixKernel:
             data: NumPy array to load
             
         Returns:
-            Memory handle/address
+            Tuple of (Memory handle/address, original_shape)
         """
         # Create temporary file for NPU data transfer
         with tempfile.NamedTemporaryFile(delete=False, suffix='.npu') as f:
@@ -67,9 +67,10 @@ class NPUMatrixKernel:
             temp_path = f.name
         
         logger.info(f"Data loaded to NPU buffer: {temp_path} (shape: {data.shape})")
-        return temp_path
+        return temp_path, data.shape
     
     def execute_kernel(self, a_handle: str, b_handle: str, 
+                      a_shape: Tuple[int, ...], b_shape: Tuple[int, ...],
                       output_shape: Tuple[int, int]) -> str:
         """
         Execute matrix multiplication kernel on NPU
@@ -108,13 +109,8 @@ class NPUMatrixKernel:
             a_data = np.frombuffer(open(a_handle, 'rb').read(), dtype=np.float16)
             b_data = np.frombuffer(open(b_handle, 'rb').read(), dtype=np.float16)
             
-            # Determine shapes (this would be passed as kernel parameters)
-            # For simplicity, assume square matrices for now
-            a_size = int(np.sqrt(len(a_data)))
-            b_size = int(np.sqrt(len(b_data)))
-            
-            a_matrix = a_data.reshape(a_size, a_size)
-            b_matrix = b_data.reshape(b_size, b_size)
+            a_matrix = a_data.reshape(a_shape)
+            b_matrix = b_data.reshape(b_shape)
             
             # Perform matrix multiplication
             result = np.matmul(a_matrix, b_matrix).astype(np.float16)
@@ -199,12 +195,12 @@ class NPUMatrixMultiplier:
         
         try:
             # Load matrices to NPU
-            a_handle = self.kernel.load_data_to_npu(a)
-            b_handle = self.kernel.load_data_to_npu(b)
+            a_handle, a_shape = self.kernel.load_data_to_npu(a)
+            b_handle, b_shape = self.kernel.load_data_to_npu(b)
             
             # Execute kernel
             output_shape = (a.shape[0], b.shape[1])
-            result_handle = self.kernel.execute_kernel(a_handle, b_handle, output_shape)
+            result_handle = self.kernel.execute_kernel(a_handle, b_handle, a_shape, b_shape, output_shape)
             
             # Read result
             result = self.kernel.read_npu_data(result_handle, output_shape)

@@ -4,7 +4,7 @@
 **Platform**: AMD Phoenix NPU (XDNA) on NucBox K11  
 **Implementation Date**: June 29, 2025  
 **Implementation By**: Claude (Anthropic AI Assistant)  
-**Status**: ⚠️ **MINOR ISSUE IDENTIFIED** - Complete Breakthrough Implementation (Minor audio input sample rate issue in GUI)
+**Status**: ⚠️ **ISSUES IDENTIFIED** - Complete Breakthrough Implementation (GUI audio input sample rate issue, Silero VAD and OpenWakeWord fallbacks)
 
 ---
 

@@ -42,9 +42,8 @@ class SileroVADNPU:
         self.chunk_duration = 0.256  # 256ms chunks for real-time processing
         self.chunk_samples = int(self.sample_rate * self.chunk_duration)
         
-        # Silero VAD internal states
-        self._h = np.zeros((2, 1, 128)).astype(np.float32) # Hidden state
-        self._c = np.zeros((2, 1, 128)).astype(np.float32) # Cell state
+        # Silero VAD internal states (combined state format)
+        self._state = np.zeros((2, 1, 128)).astype(np.float32)
         
         # VAD settings
         self.vad_threshold = 0.5
@@ -96,8 +95,18 @@ class SileroVADNPU:
                 self.vad_model = ort.InferenceSession(model_path, providers=providers)
                 logger.info(f"✅ Silero VAD loaded with providers: {self.vad_model.get_providers()}")
                 
+                # Test the model to make sure it works
+                test_input = np.random.random((1, self.chunk_samples)).astype(np.float32)
+                test_feed = {
+                    'input': test_input,
+                    'sr': np.array(self.sample_rate, dtype=np.int64),
+                    'state': self._state
+                }
+                _ = self.vad_model.run(None, test_feed)
+                logger.info("✅ Silero VAD model test passed")
+                
             except Exception as e:
-                logger.warning(f"⚠️ HuggingFace download failed: {e}")
+                logger.warning(f"⚠️ Silero VAD model failed: {e}")
                 
                 # Fallback: Create simplified VAD using audio energy
                 logger.info("🔄 Using simplified energy-based VAD as fallback")
@@ -136,14 +145,16 @@ class SileroVADNPU:
                 input_feed = {
                     'input': input_tensor,
                     'sr': np.array(self.sample_rate, dtype=np.int64),
-                    'state': np.concatenate((self._h, self._c), axis=1)
+                    'state': self._state
                 }
                 
                 # Run VAD inference
                 outputs = self.vad_model.run(None, input_feed)
                 speech_prob = outputs[0][0][0]  # Extract speech probability
-                self._h = outputs[1][:, :128, :]
-                self._c = outputs[1][:, 128:, :]
+                
+                # Update states if provided (some models return new states)
+                if len(outputs) > 1:
+                    self._state = outputs[1]  # New state: [2, 1, 128]
                 
                 is_speech = speech_prob > self.vad_threshold
                 return is_speech, speech_prob

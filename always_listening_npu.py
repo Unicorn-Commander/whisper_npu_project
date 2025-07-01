@@ -26,6 +26,7 @@ from whisperx_npu_accelerator import NPUAccelerator
 from onnx_whisper_npu import ONNXWhisperNPU
 from silero_vad_npu import SileroVADNPU
 from openwakeword_npu import OpenWakeWordNPU
+from audio_analyzer import AudioAnalyzer # Import the new module
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -42,6 +43,7 @@ class AlwaysListeningNPU:
         self.whisper_npu = ONNXWhisperNPU()
         self.vad_npu = SileroVADNPU()
         self.wake_word_npu = OpenWakeWordNPU()
+        self.audio_analyzer = AudioAnalyzer() # Instantiate AudioAnalyzer
         
         # System state
         self.is_ready = False
@@ -198,6 +200,10 @@ class AlwaysListeningNPU:
             if self.status_callback:
                 self.status_callback("processing_started", {"duration": duration})
             
+            # Perform audio analysis
+            audio_features = self.audio_analyzer.analyze_audio_chunk(full_audio)
+            logger.info(f"📊 Audio features extracted: {audio_features}")
+
             # Save to temporary file for Whisper processing
             with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as tmp_file:
                 sf.write(tmp_file.name, full_audio, self.sample_rate)
@@ -209,12 +215,13 @@ class AlwaysListeningNPU:
             # Clean up temp file
             os.unlink(temp_path)
             
-            # Add system metadata
+            # Add system metadata and audio features
             result.update({
                 "system": "AlwaysListeningNPU",
                 "activation_mode": self.activation_mode,
                 "recorded_duration": duration,
-                "npu_accelerated": True
+                "npu_accelerated": True,
+                "audio_features": audio_features # Add audio features to the result
             })
             
             logger.info(f"✅ Transcription completed: '{result['text']}'")
@@ -369,7 +376,8 @@ def test_always_listening():
     
     # Get status
     status = system.get_system_status()
-    print(f"\n📊 System Status:")
+    print(f"
+📊 System Status:")
     for key, value in status.items():
         if isinstance(value, dict):
             print(f"  {key}:")
@@ -380,29 +388,35 @@ def test_always_listening():
     
     # Define callbacks
     def on_transcription(result):
-        print(f"\n🎤 TRANSCRIPTION RESULT:")
+        print(f"
+🎤 TRANSCRIPTION RESULT:")
         print(f"  Text: '{result['text']}'")
         print(f"  Duration: {result['audio_duration']:.1f}s")
         print(f"  Processing: {result['processing_time']:.2f}s")
         print(f"  Real-time factor: {result['real_time_factor']:.3f}x")
         print(f"  NPU accelerated: {result['npu_accelerated']}")
+        if 'audio_features' in result:
+            print(f"  Audio Features: {result['audio_features']}")
     
     def on_status(event, data):
         print(f"📡 Status: {event} - {data}")
     
     # Start listening for 30 seconds
-    print(f"\n🎤 Starting always-listening test for 30 seconds...")
+    print(f"
+🎤 Starting always-listening test for 30 seconds...")
     print(f"🎯 Say 'hey jarvis' or 'computer' to activate, then speak...")
     
     if system.start_always_listening(on_transcription, on_status):
         try:
             time.sleep(30.0)
         except KeyboardInterrupt:
-            print("\n⏹️ Test interrupted by user")
+            print("
+⏹️ Test interrupted by user")
         finally:
             system.stop_always_listening()
     
-    print("\n🎉 Always-Listening System test completed!")
+    print("
+🎉 Always-Listening System test completed!")
     return True
 
 if __name__ == "__main__":

@@ -2352,6 +2352,7 @@ Results will include:
             margin: 0;
             padding: 20px;
             line-height: 1.6;
+            font-size: 15px;
         }
         .header {
             text-align: center;
@@ -2360,133 +2361,151 @@ Results will include:
             background: linear-gradient(135deg, #2a4a6b 0%, #1e2a44 100%);
             border-radius: 15px;
             border: 2px solid #4a90e2;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
         .title {
-            font-size: 2.5em;
+            font-size: 2.8em;
             font-weight: 900;
             color: #61dafb;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(97, 218, 251, 0.3);
+            letter-spacing: 4px;
+            text-shadow: 0 0 25px rgba(97, 218, 251, 0.4);
         }
         .subtitle {
-            font-size: 1.2em;
+            font-size: 1.3em;
             color: #4a90e2;
             margin: 10px 0 0 0;
             font-weight: 600;
         }
         .section {
-            margin: 25px 0;
-            padding: 20px;
+            margin: 30px 0;
+            padding: 25px;
             background: linear-gradient(135deg, #1e2a44 0%, #1a1a2e 100%);
-            border-radius: 12px;
-            border-left: 4px solid #61dafb;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border-left: 5px solid #61dafb;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
         }
         .section-title {
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: 700;
             color: #61dafb;
-            margin: 0 0 15px 0;
+            margin: 0 0 20px 0;
             display: flex;
             align-items: center;
+            border-bottom: 1px solid rgba(97, 218, 251, 0.3);
+            padding-bottom: 10px;
         }
         .section-title::before {
             content: '';
-            width: 4px;
-            height: 20px;
+            width: 5px;
+            height: 25px;
             background: #4a90e2;
-            margin-right: 10px;
-            border-radius: 2px;
+            margin-right: 12px;
+            border-radius: 3px;
         }
         .step-list {
             counter-reset: step-counter;
+            padding: 0;
+            list-style: none;
         }
         .step {
             counter-increment: step-counter;
-            margin: 15px 0;
-            padding: 15px;
-            background: rgba(74, 144, 226, 0.1);
-            border-radius: 8px;
-            border-left: 3px solid #4a90e2;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(74, 144, 226, 0.15);
+            border-radius: 10px;
+            border-left: 4px solid #4a90e2;
             position: relative;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         .step::before {
             content: counter(step-counter);
             position: absolute;
-            left: -15px;
+            left: -20px;
             top: 50%;
             transform: translateY(-50%);
             background: #4a90e2;
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 0.9em;
+            font-size: 1em;
+            border: 2px solid #61dafb;
         }
         .step-title {
             font-weight: 700;
             color: #61dafb;
-            margin: 0 0 8px 0;
-            font-size: 1.1em;
+            margin: 0 0 10px 0;
+            font-size: 1.3em;
+            border-bottom: none; /* Remove border from step title */
+            padding-bottom: 0;
         }
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
         }
         .feature-card {
             background: linear-gradient(135deg, #2a3d5a 0%, #1f2d42 100%);
-            padding: 20px;
-            border-radius: 12px;
+            padding: 25px;
+            border-radius: 15px;
             border: 1px solid #3a4d6a;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(97, 218, 251, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(97, 218, 251, 0.3);
         }
         .feature-icon {
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 3em;
+            margin-bottom: 15px;
+            color: #61dafb;
         }
         .feature-title {
             font-weight: 700;
             color: #61dafb;
             margin-bottom: 10px;
-            font-size: 1.2em;
+            font-size: 1.4em;
+            border-bottom: none; /* Remove border from feature title */
+            padding-bottom: 0;
         }
         .tip-box {
             background: linear-gradient(135deg, #2d5a2d 0%, #1f3f1f 100%);
             border: 1px solid #4a8a4a;
-            border-radius: 10px;
-            padding: 15px;
-            margin: 20px 0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         .tip-title {
             font-weight: 700;
             color: #90EE90;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
+            font-size: 1.2em;
         }
         .tip-title::before {
             content: '💡';
-            margin-right: 8px;
+            margin-right: 10px;
+            font-size: 1.5em;
         }
         .code {
             background: #0a0a14;
             color: #61dafb;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 3px 8px;
+            border-radius: 5px;
             font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            border: 1px solid #2a4a6b;
         }
         .highlight {
             background: linear-gradient(135deg, #4a90e2, #61dafb);
@@ -2495,20 +2514,31 @@ Results will include:
             font-weight: 700;
         }
         ul, ol {
-            padding-left: 20px;
+            padding-left: 25px;
+            margin-top: 15px;
         }
         li {
-            margin: 8px 0;
+            margin: 10px 0;
         }
         .badge {
             display: inline-block;
             background: #4a90e2;
             color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
             font-weight: 600;
             margin: 0 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        a {
+            color: #61dafb;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #4a90e2;
+            text-decoration: underline;
         }
         </style>
         """
@@ -2528,41 +2558,41 @@ Results will include:
             
             <div class="section">
                 <h2 class="section-title">⚡ Quick Start Protocol</h2>
-                <div class="step-list">
-                    <div class="step">
+                <ol class="step-list">
+                    <li class="step">
                         <div class="step-title">Initialize System</div>
-                        <p>Click <span class="code">🚀 Initialize System</span> in the Always Listening tab. The system will load all NPU components including Silero VAD, OpenWakeWord, and ONNX Whisper models.</p>
-                    </div>
+                        <p>Click <span class="code">🚀 Initialize System</span> in the Always Listening tab. The system will load all NPU components including Silero VAD, OpenWakeWord, and ONNX Whisper models. This may take a moment on first run.</p>
+                    </li>
                     
-                    <div class="step">
+                    <li class="step">
                         <div class="step-title">Configure Settings</div>
-                        <p>Choose activation mode (<span class="highlight">wake_word</span> recommended), set wake words (default: "hey jarvis, computer, assistant"), and select <span class="badge">onnx-base</span> for optimal NPU performance.</p>
-                    </div>
+                        <p>Navigate to the <span class="badge">⚙️ Configuration</span> tab. Choose your preferred activation mode (<span class="highlight">wake_word</span> recommended), set your desired wake words (default: "hey jarvis, computer, assistant"), and select your AI model. For optimal NPU performance, <span class="badge">distil-whisper-large-v2</span> is recommended.</p>
+                    </li>
                     
-                    <div class="step">
+                    <li class="step">
                         <div class="step-title">Start Listening</div>
-                        <p>Click <span class="code">🎤 Start Always Listening</span>. Green status indicators will show the system is actively monitoring for your voice.</p>
-                    </div>
+                        <p>Return to the <span class="badge">🎤 Always Listening</span> tab. Click <span class="code">🎤 Start Always Listening</span>. Green status indicators will confirm the system is actively monitoring for your voice.</p>
+                    </li>
                     
-                    <div class="step">
+                    <li class="step">
                         <div class="step-title">Speak & Transcribe</div>
-                        <p>Say your wake word, then speak your message. Recording auto-starts and stops based on intelligent voice activity detection. Transcriptions appear in real-time!</p>
-                    </div>
+                        <p>Say your chosen wake word, then speak your message. The system intelligently auto-starts and stops recording based on voice activity. Your transcriptions will appear in real-time in the display area.</p>
+                    </li>
                     
-                    <div class="step">
+                    <li class="step">
                         <div class="step-title">Manage & Export</div>
-                        <p>View results in the clean transcript display, export to TXT/JSON formats, and use <span class="code">🔄 Shutdown System</span> to change models safely.</p>
-                    </div>
-                </div>
+                        <p>You can clear transcripts, save your session, or load previous sessions using the buttons above the transcript display. Use <span class="code">🔄 Shutdown System</span> to safely unload models and change configurations.</p>
+                    </li>
+                </ol>
             </div>
             
             <div class="tip-box">
                 <div class="tip-title">Pro Tips for Maximum Performance</div>
                 <ul>
-                    <li>Use <span class="highlight">ONNX models</span> for maximum NPU acceleration (10-45x real-time)</li>
-                    <li>Adjust VAD threshold in Configuration for your acoustic environment</li>
-                    <li>Monitor performance in System Diagnostics tab</li>
-                    <li>Enable tooltips in Settings for contextual help throughout the interface</li>
+                    <li>For the fastest transcription, use <span class="highlight">Advanced NPU Backend</span> models like <span class="badge">distil-whisper-large-v2</span>.</li>
+                    <li>Adjust VAD threshold in the <span class="badge">⚙️ Configuration</span> tab to suit your acoustic environment.</li>
+                    <li>Monitor real-time performance and NPU utilization in the <span class="badge">📊 System Diagnostics</span> tab.</li>
+                    <li>Enable tooltips in <span class="badge">⚙️ Settings</span> for contextual help throughout the interface.</li>
                 </ul>
             </div>
             
@@ -2570,23 +2600,480 @@ Results will include:
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
                     <div class="feature-title">NPU Acceleration</div>
-                    <p>AMD Phoenix NPU delivers 16 TOPS INT8 performance with sub-watt power consumption.</p>
+                    <p>Leverage the full power of your AMD Phoenix NPU for unparalleled speech processing speed and efficiency.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
                     <div class="feature-title">Real-Time Processing</div>
-                    <p>Experience lightning-fast transcription with <50ms VAD latency and 10-45x real-time factors.</p>
+                    <p>Experience lightning-fast transcription with sub-50ms VAD latency and real-time factors up to 51x.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
                     <div class="feature-title">Privacy First</div>
-                    <p>All processing happens locally on your NPU. No cloud dependencies, maximum privacy.</p>
+                    <p>All processing happens locally on your device. No cloud dependencies, ensuring maximum data privacy and security.</p>
                 </div>
             </div>
             """,
             
+            "System Requirements": f"""
+            {css_style}
+            <div class="header">
+                <h1 class="title">🦄 Unicorn Commander</h1>
+                <p class="subtitle">System Requirements</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">💻 Hardware Requirements</h2>
+                <ul>
+                    <li><strong>Processor:</strong> AMD Ryzen with integrated Phoenix NPU (e.g., NucBox K11, Framework Laptop 13/16 AMD)</li>
+                    <li><strong>RAM:</strong> 16GB or more recommended for optimal performance, especially with larger models.</li>
+                    <li><strong>Storage:</strong> 10GB free space for models and caches. SSD highly recommended.</li>
+                    <li><strong>Audio Input:</strong> High-quality microphone for best transcription accuracy.</li>
+                    <li><strong>iGPU (Optional):</strong> AMD Radeon or NVIDIA GeForce (CUDA-enabled) for iGPU backend acceleration.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🖥️ Software Requirements</h2>
+                <ul>
+                    <li><strong>Operating System:</strong> Linux (Ubuntu 22.04 LTS / 24.04 LTS / 25.04 recommended).</li>
+                    <li><strong>Python:</strong> Python 3.10 or newer.</li>
+                    <li><strong>PySide6:</strong> For the graphical user interface.</li>
+                    <li><strong>AMD XRT:</strong> Latest drivers for AMD NPU support. Ensure your XRT version is compatible with your NPU firmware.</li>
+                    <li><strong>ONNX Runtime:</strong> With appropriate execution providers (CPU, ROCm, CUDA, DirectML).</li>
+                    <li><strong>SoundDevice:</strong> For audio input/output management.</li>
+                    <li><strong>HuggingFace Transformers & Diffusers:</strong> For model loading and management.</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <div class="tip-title">Installation & Setup</div>
+                <p>Refer to the <span class="code">SETUP.md</span> and <span class="code">QUICK_START.md</span> files in the project root for detailed installation instructions and dependency management.</p>
+            </div>
+            """,
+
+            "Model Management": f"""
+            {css_style}
+            <div class="header">
+                <h1 class="title">🦄 Unicorn Commander</h1>
+                <p class="subtitle">Model Management</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🗄️ Overview</h2>
+                <p>The <span class="badge">🗄️ Models</span> tab allows you to view, download, import, and manage the various AI models used by Unicorn Commander. Efficient model management is key to optimizing performance and storage.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Available Models</h2>
+                <p>This section displays all models detected in your local cache directories. You can see their size, status, and storage location.</p>
+                <ul>
+                    <li><strong>Model:</strong> Name of the model (e.g., <span class="code">onnx-base</span>, <span class="code">distil-whisper-large-v2</span>).</li>
+                    <li><strong>Size:</strong> File size of the model.</li>
+                    <li><strong>Status:</strong> Indicates if the model is <span class="badge">Available</span> or <span class="badge">Missing</span>.</li>
+                    <li><strong>Location:</strong> The directory path where the model files are stored.</li>
+                </ul>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <div class="feature-title">Refresh Models</div>
+                        <p>Scans your system for newly added or removed model files and updates the list.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🗑️</div>
+                        <div class="feature-title">Delete Selected</div>
+                        <p>Permanently removes the selected model files from your disk. Use with caution!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📂</div>
+                        <div class="feature-title">Import Model</div>
+                        <p>Allows you to manually import model files from any location on your system into the Unicorn Commander cache.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📥 Download Models</h2>
+                <p>Easily download pre-trained models directly from HuggingFace or custom URLs.</p>
+                <ul>
+                    <li><strong>Model Type:</strong> Choose between ONNX Whisper, OpenAI Whisper, or Custom models.</li>
+                    <li><strong>Model Size:</strong> Select the desired size (e.g., tiny, base, large-v2). Larger models offer better accuracy but require more resources.</li>
+                    <li><strong>Custom URL:</strong> For advanced users, specify a direct URL to a model file.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">Download Progress</div>
+                    <p>A progress bar and status label will keep you informed during the download process. You can also <span class="code">⏹️ Cancel Download</span> if needed.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🧹 Cache Management</h2>
+                <p>Monitor and manage the disk space used by your models.</p>
+                <ul>
+                    <li><strong>Cache Size:</strong> Displays the total size of all cached models.</li>
+                    <li><strong>Clear All Cache:</strong> Deletes all downloaded model files. This is useful for freeing up disk space but will require re-downloading models when needed.</li>
+                </ul>
+            </div>
+            """,
+
+            "Always-Listening Mode": f"""
+            {css_style}
+            <div class="header">
+                <h1 class="title">🦄 Unicorn Commander</h1>
+                <p class="subtitle">Always-Listening Mode</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🎤 Overview</h2>
+                <p>The <span class="badge">🎤 Always Listening</span> tab is the core of Unicorn Commander's real-time voice assistant capabilities. It allows the system to continuously monitor audio input, detect speech, and transcribe it with NPU acceleration.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">⚡ Quick Configuration</h2>
+                <p>Before starting, configure these essential settings:</p>
+                <ul>
+                    <li><strong>Activation Mode:</strong>
+                        <ul>
+                            <li><span class="code">wake_word</span> (Recommended): System activates only after detecting a specified wake word.</li>
+                            <li><span class="code">vad_only</span>: System activates when any speech is detected (Voice Activity Detection).</li>
+                            <li><span class="code">always_on</span>: System continuously records and transcribes all audio.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Wake Words:</strong> A comma-separated list of phrases that trigger the system (e.g., "hey jarvis, computer, assistant").</li>
+                    <li><strong>AI Model:</strong> Select the transcription model. <span class="badge">distil-whisper-large-v2</span> is recommended for its balance of speed and accuracy on NPU.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">▶️ Controls</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <div class="feature-title">Initialize System</div>
+                        <p>Loads all necessary NPU components and AI models into memory. This must be done before starting to listen.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎤</div>
+                        <div class="feature-title">Start Always Listening</div>
+                        <p>Begins continuous audio monitoring based on your selected activation mode.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔇</div>
+                        <div class="feature-title">Stop Listening</div>
+                        <p>Pauses audio monitoring. Models remain loaded in memory for quick restart.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <div class="feature-title">Shutdown System</div>
+                        <p>Completely unloads all NPU components and models, freeing up system resources. Necessary before switching models or closing the application.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📊 Live Status Indicators</h2>
+                <p>Monitor the real-time status of the system:</p>
+                <ul>
+                    <li><strong>VAD:</strong> Indicates if voice activity is detected.</li>
+                    <li><strong>Wake Word:</strong> Shows if a wake word is being listened for or has been detected.</li>
+                    <li><strong>Recording:</strong> Confirms when audio is actively being recorded for transcription.</li>
+                    <li><strong>Processing:</strong> Shows when the NPU is actively transcribing audio.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📝 Live Transcription Results</h2>
+                <p>Transcribed text appears here in real-time, along with emotional and complaint indicators if enabled.</p>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🗑️</div>
+                        <div class="feature-title">Clear Transcripts</div>
+                        <p>Removes all displayed transcriptions from the current session.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <div class="feature-title">Save Session</div>
+                        <p>Exports the current transcription session, including all metadata, to a JSON or TXT file.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📂</div>
+                        <div class="feature-title">Load Session</div>
+                        <p>Imports a previously saved transcription session for review.</p>
+                    </div>
+                </div>
+                <div class="tip-box">
+                    <div class="tip-title">Enhanced Intelligence</div>
+                    <p>If <span class="badge">Enhanced Topical Filtering</span> is available, transcriptions will include real-time emotional states (😊😞😤) and complaint detection (⚠️🚨📝) for deeper insights.</p>
+                </div>
+            </div>
+            """,
+
+            "Single File Processing": f"""
+            {css_style}
+            <div class="header">
+                <h1 class="title">🦄 Unicorn Commander</h1>
+                <p class="subtitle">Single File Processing</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📁 Overview</h2>
+                <p>The <span class="badge">📁 Single File</span> tab allows you to transcribe pre-recorded audio files using Unicorn Commander's powerful NPU and iGPU backends. This is ideal for batch processing or analyzing specific audio clips.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Audio File Selection</h2>
+                <p>Click <span class="code">📂 Browse Audio File</span> to select an audio file from your system. Supported formats include WAV, MP3, M4A, FLAC, and OGG.</p>
+                <div class="tip-box">
+                    <div class="tip-title">Best Practices</div>
+                    <p>For optimal results and compatibility, WAV files with a 16kHz sample rate are recommended.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">⚙️ Processing Options</h2>
+                <ul>
+                    <li><strong>Processing Engine:</strong> Choose the backend for transcription:
+                        <ul>
+                            <li><span class="badge">🎮 iGPU (Recommended for Files)</span>: Utilizes your integrated GPU (CUDA/OpenCL) for very fast file processing.</li>
+                            <li><span class="badge">🧠 Advanced NPU</span>: Leverages the NPU for high-performance transcription.</li>
+                            <li><span class="badge">📦 Legacy NPU</span>: Compatible with older NPU configurations.</li>
+                            <li><span class="badge">💻 CPU (Compatibility)</span>: Fallback for systems without NPU/iGPU, or for maximum compatibility.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Model:</strong> Select the AI model for transcription. Models are optimized for different engines.</li>
+                    <li><strong>Quality:</strong> Balance between transcription speed and accuracy (<span class="badge">Best</span>, <span class="badge">Balanced</span>, <span class="badge">Fast</span>).</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">▶️ Process & Results</h2>
+                <p>After selecting your file and options, click <span class="code">Process</span>. The transcription results will appear in the "Processing Results" area, including:</p>
+                <ul>
+                    <li>Complete transcription text.</li>
+                    <li>Processing time and real-time factor.</li>
+                    <li>Details on NPU/iGPU acceleration status.</li>
+                    <li>Technical metrics like encoder output shape.</li>
+                </ul>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📄</div>
+                        <div class="feature-title">Export TXT</div>
+                        <p>Save the raw transcription text to a plain text file.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">Export JSON</div>
+                        <p>Save the full transcription results, including all metadata and performance metrics, to a structured JSON file.</p>
+                    </div>
+                </div>
+            </div>
+            """,
+
+            "NPU Configuration": f"""
+            {css_style}
+            <div class="header">
+                <h1 class="title">🦄 Unicorn Commander</h1>
+                <p class="subtitle">NPU Configuration</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">⚙️ Overview</h2>
+                <p>The <span class="badge">⚙️ Configuration</span> tab provides granular control over Unicorn Commander's core functionalities, allowing you to fine-tune performance and behavior for your specific needs and environment.</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Voice Activity Detection (VAD) Settings</h2>
+                <p>Control how the system detects speech and silence:</p>
+                <ul>
+                    <li><strong>VAD Threshold:</strong> Sensitivity of speech detection (0.1 = very sensitive, 1.0 = only loud speech). Adjust this to minimize false positives or negatives.</li>
+                    <li><strong>Min Speech Duration (s):</strong> Minimum duration of detected sound to be considered actual speech. Helps filter out short noises.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Wake Word Detection Settings</h2>
+                <p>Configure the wake word system:</p>
+                <ul>
+                    <li><strong>Wake Threshold:</strong> Confidence level required for a wake word to be recognized (higher = fewer false activations).</li>
+                    <li><strong>Activation Cooldown (s):</strong> Time after a successful activation before the system will listen for another wake word. Prevents rapid, unintended re-activations.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Recording Settings</h2>
+                <p>Manage how audio is recorded for transcription:</p>
+                <ul>
+                    <li><strong>Max Recording Duration (s):</strong> Maximum length of a single audio segment to be transcribed. Prevents excessively long recordings.</li>
+                    <li><strong>Max Silence Duration (s):</strong> How long silence must persist before the system stops recording an active speech segment.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Model Configuration</h2>
+                <p>Select the primary Whisper model used by the Always-Listening mode.</p>
+                <ul>
+                    <li><strong>Whisper Model:</strong> Choose from various ONNX and OpenAI Whisper models. Note that switching models requires a system shutdown and re-initialization.</li>
+                    <li><strong>Switch Model Button:</strong> Initiates the model change process.</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">Topical Filtering (Beta)</h2>
+                <p>Enable intelligent content filtering and analysis:</p>
+                <ul>
+                    <li><strong>Filter Mode:</strong>
+                        <ul>
+                            <li><span class="code">No Filtering (Default)</span>: All transcriptions are displayed as-is.</li>
+                            <li><span class="code">Medical Conversation</span>: Optimizes for medical terminology and extracts relevant health information.</li>
+                            <li><span class="code">Business Meeting</span>: Focuses on action items, decisions, and business-related discussions.</li>
+                            <li><span class="code">Custom Filter</span>: Placeholder for future custom filter integration.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Relevance Threshold:</strong> Adjust the confidence level for filtering. Transcriptions below this threshold may be suppressed or flagged.</li>
+                </ul>
+                <div class="tip-box">
+                    <div class="tip-title">Enhanced Intelligence</div>
+                    <p>When Enhanced Topical Filtering is available, this section also controls real-time emotional recognition and complaint detection, providing richer insights into conversations.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">💾 Apply Configuration</h2>
+                <p>Click this button to save and apply all changes made in the Configuration tab. Some changes may require re-initializing the system to take full effect.</p>
+            </div>
+            """,
+
+            "Troubleshooting": f"""
+            {css_style}
+            <div class="header">
+                <h1 class="title">🦄 Unicorn Commander</h1>
+                <p class="subtitle">Troubleshooting Guide</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">❌ Common Issues & Solutions</h2>
+                
+                <h3>GUI Won't Launch</h3>
+                <ul>
+                    <li><strong>Check PySide6 Installation:</strong> Ensure <span class="code">PySide6</span> is correctly installed. Run <span class="code">python3 -c "from PySide6.QtWidgets import QApplication"</span> in your terminal.</li>
+                    <li><strong>Check Display Environment:</strong> For Wayland, ensure <span class="code">echo $DISPLAY</span> returns something like <span class="code">:0</span> or <span class="code">wayland-0</span>.</li>
+                    <li><strong>Dependencies:</strong> Verify all Python dependencies are installed from <span class="code">requirements.txt</span>.</li>
+                </ul>
+                
+                <h3>No Audio Input / Microphone Not Working</h3>
+                <ul>
+                    <li><strong>Permissions:</strong> Ensure the application has microphone access. Check your OS privacy settings.</li>
+                    <li><strong>Device Selection:</strong> Verify the correct audio input device is selected in your system's sound settings.</li>
+                    <li><strong>Test Audio System:</strong> Use the <span class="code">🎤 Test Audio System</span> button in the <span class="badge">📊 System Diagnostics</span> tab to list available devices.</li>
+                    <li><strong>PulseAudio/PipeWire:</strong> Restart audio services if necessary (<span class="code">pulseaudio -k && pulseaudio --start</span> or equivalent for PipeWire).</li>
+                </ul>
+                
+                <h3>NPU Not Detected / Not Accelerating</h3>
+                <ul>
+                    <li><strong>XRT Installation:</strong> Confirm AMD XRT drivers are installed and working. Run <span class="code">xrt-smi list</span> and <span class="code">xrt-smi examine</span> in your terminal.</li>
+                    <li><strong>Firmware:</strong> Ensure your NPU firmware is up to date and compatible with your XRT version.</li>
+                    <li><strong>Initialization:</strong> Make sure you've clicked <span class="code">🚀 Initialize System</span> in the Always Listening tab.</li>
+                    <li><strong>Model Compatibility:</strong> Ensure you're using an NPU-compatible model (e.g., ONNX models, Advanced NPU models).</li>
+                    <li><strong>System Restart:</strong> Sometimes a full system reboot is required after driver installation.</li>
+                </ul>
+                
+                <h3>Poor Transcription Quality</h3>
+                <ul>
+                    <li><strong>Audio Quality:</strong> Use a high-quality microphone in a quiet environment. Minimize background noise.</li>
+                    <li><strong>Microphone Placement:</strong> Ensure the microphone is close to the speaker.</li>
+                    <li><strong>VAD Threshold:</strong> Adjust the <span class="code">VAD Threshold</span> in the <span class="badge">⚙️ Configuration</span> tab. A lower value makes it more sensitive to quiet speech.</li>
+                    <li><strong>Model Selection:</strong> Try a larger or more accurate model (e.g., <span class="badge">whisper-large-v3</span>) if accuracy is paramount.</li>
+                </ul>
+                
+                <h3>High CPU Usage / Low Performance</h3>
+                <ul>
+                    <li><strong>NPU/iGPU Backend:</strong> Ensure you've selected an NPU or iGPU backend for processing, not just CPU.</li>
+                    <li><strong>Model Size:</strong> Smaller models (e.g., <span class="badge">distil-whisper-large-v2</span>, <span class="badge">faster-whisper-large-v3</span>) offer better performance.</li>
+                    <li><strong>System Resources:</strong> Close other demanding applications.</li>
+                    <li><strong>Thermal Throttling:</strong> Ensure your system has adequate cooling, especially for sustained NPU/iGPU usage.</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <div class="tip-title">Need More Help?</div>
+                <p>If you're still experiencing issues, please refer to the <span class="code">TROUBLESHOOTING.md</span> file in the project root or contact Magic Unicorn Technologies support.</p>
+            </div>
+            """,
+
+            "Keyboard Shortcuts": f"""
+            {css_style}
+            <div class="header">
+                <h1 class="title">🦄 Unicorn Commander</h1>
+                <p class="subtitle">Keyboard Shortcuts</p>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">⌨️ Global Shortcuts</h2>
+                <ul>
+                    <li><span class="code">F1</span>: Show context-sensitive help for the current tab.</li>
+                    <li><span class="code">Ctrl + H</span>: Open the main Help & Documentation window.</li>
+                    <li><span class="code">Ctrl + Q</span>: Quit the application.</li>
+                    <li><span class="code">Escape</span>: Stop always-listening mode (if active).</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🚀 Always-Listening Tab Shortcuts</h2>
+                <ul>
+                    <li><span class="code">Alt + I</span>: Initialize System</li>
+                    <li><span class="code">Alt + S</span>: Start Always Listening</li>
+                    <li><span class="code">Alt + P</span>: Stop Listening (Pause)</li>
+                    <li><span class="code">Alt + D</span>: Shutdown System</li>
+                    <li><span class="code">Alt + C</span>: Clear Transcripts</li>
+                    <li><span class="code">Alt + V</span>: Save Session</li>
+                    <li><span class="code">Alt + L</span>: Load Session</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📁 Single File Tab Shortcuts</h2>
+                <ul>
+                    <li><span class="code">Alt + B</span>: Browse Audio File</li>
+                    <li><span class="code">Alt + R</span>: Process Audio (Run)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">⚙️ Configuration Tab Shortcuts</h2>
+                <ul>
+                    <li><span class="code">Alt + A</span>: Apply Configuration</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">🗄️ Models Tab Shortcuts</h2>
+                <ul>
+                    <li><span class="code">Alt + R</span>: Refresh Models</li>
+                    <li><span class="code">Alt + D</span>: Delete Selected Model</li>
+                    <li><span class="code">Alt + I</span>: Import Model</li>
+                    <li><span class="code">Alt + O</span>: Download Model</li>
+                    <li><span class="code">Alt + X</span>: Cancel Download</li>
+                    <li><span class="code">Alt + C</span>: Clear All Cache</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title">📊 System Diagnostics Tab Shortcuts</h2>
+                <ul>
+                    <li><span class="code">Alt + R</span>: Refresh Status</li>
+                    <li><span class="code">Alt + A</span>: Test Audio System</li>
+                    <li><span class="code">Alt + N</span>: Test NPU System</li>
+                </ul>
+            </div>
+            
+            <div class="tip-box">
+                <div class="tip-title">Customization</div>
+                <p>Keyboard shortcuts are hardcoded for now, but future versions may allow user customization.</p>
+            </div>
+            """,
+
             "About Unicorn Commander": f"""
             {css_style}
             <div class="header">
@@ -2598,28 +3085,32 @@ Results will include:
                 <h2 class="section-title">🏆 Version Information</h2>
                 <p><strong>Version:</strong> 2.0 Professional Edition<br>
                 <strong>Built by:</strong> Magic Unicorn Technologies<br>
-                <strong>Platform:</strong> <a href="https://unicorncommander.com" style="color: #61dafb;">unicorncommander.com</a><br>
-                <strong>Company:</strong> <a href="https://magicunicorn.tech" style="color: #61dafb;">magicunicorn.tech</a></p>
+                <strong>Platform:</strong> <a href="https://unicorncommander.com" style="color: #61dafb;" target="_blank">unicorncommander.com</a><br>
+                <strong>Company:</strong> <a href="https://magicunicorn.tech" style="color: #61dafb;" target="_blank">magicunicorn.tech</a></p>
             </div>
             
             <div class="section">
                 <h2 class="section-title">🌟 Technology Stack</h2>
                 <div class="feature-grid">
                     <div class="feature-card">
+                        <div class="feature-icon">🖥️</div>
                         <div class="feature-title">Frontend</div>
-                        <p>PySide6 (Qt6) with custom Unicorn Commander styling, optimized for KDE6/Wayland</p>
+                        <p>PySide6 (Qt6) with custom Unicorn Commander styling, optimized for KDE6/Wayland for a native and responsive user experience.</p>
                     </div>
                     <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
                         <div class="feature-title">Backend</div>
-                        <p>ONNX Runtime with NPU execution providers, hardware-accelerated inference pipelines</p>
+                        <p>ONNX Runtime with NPU execution providers, advanced iGPU (CUDA/OpenCL) acceleration, and robust CPU fallbacks for versatile performance.</p>
                     </div>
                     <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
                         <div class="feature-title">Models</div>
-                        <p>Optimized Whisper, Silero VAD, OpenWakeWord - all NPU-accelerated</p>
+                        <p>Optimized Whisper (distil-whisper, faster-whisper), Silero VAD, and OpenWakeWord models, all meticulously integrated for NPU acceleration.</p>
                     </div>
                     <div class="feature-card">
+                        <div class="feature-icon">🐧</div>
                         <div class="feature-title">Platform</div>
-                        <p>Linux with AMD NPU driver stack, modular and extensible architecture</p>
+                        <p>Linux with AMD NPU driver stack (XRT), ensuring deep hardware integration and a modular, extensible architecture for future innovations.</p>
                     </div>
                 </div>
             </div>
@@ -2627,18 +3118,18 @@ Results will include:
             <div class="section">
                 <h2 class="section-title">⚡ Performance Metrics</h2>
                 <ul>
-                    <li><strong>Voice Activity Detection:</strong> &lt;50ms latency</li>
-                    <li><strong>Wake Word Recognition:</strong> &lt;100ms response time</li>
-                    <li><strong>Transcription Speed:</strong> 10-45x real-time performance</li>
-                    <li><strong>Memory Footprint:</strong> 1-3GB (model dependent)</li>
-                    <li><strong>NPU Utilization:</strong> 20-80% during active transcription</li>
-                    <li><strong>Power Consumption:</strong> &lt;1W idle, 2-5W active</li>
+                    <li><strong>Voice Activity Detection:</strong> Sub-50ms latency for instant speech detection.</li>
+                    <li><strong>Wake Word Recognition:</strong> Sub-100ms response time for seamless activation.</li>
+                    <li><strong>Transcription Speed:</strong> Achieves 10-51x real-time performance, significantly faster than traditional methods.</li>
+                    <li><strong>Memory Footprint:</strong> Optimized usage, typically 1-3GB depending on the loaded model.</li>
+                    <li><strong>NPU Utilization:</strong> Efficiently utilizes 20-80% of NPU capacity during active transcription.</li>
+                    <li><strong>Power Consumption:</strong> Ultra-low power, less than 1W idle and 2-5W active, ideal for always-on scenarios.</li>
                 </ul>
             </div>
             
             <div class="tip-box">
                 <div class="tip-title">Built with 💜 by Magic Unicorn Technologies</div>
-                <p>Pioneering the future of edge AI and NPU acceleration. We're building the next generation of AI tools that put privacy, performance, and user experience first.</p>
+                <p>Pioneering the future of edge AI and NPU acceleration. We're building the next generation of AI tools that prioritize privacy, performance, and an exceptional user experience.</p>
             </div>
             """
         }
